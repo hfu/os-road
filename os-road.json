@@ -18,7 +18,7 @@
         "maxzoom": 14
       }
     },
-    "sprite": "https://hfu.github.io/os-road/sprites",
+    "sprite": "https://hfu.github.io/os-road/sprites/sprites",
     "glyphs": "https://hfu.github.io/noto-jp/{fontstack}/{range}.pbf",
     "layers": [
       {
