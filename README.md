@@ -10,7 +10,7 @@ I am hosting OS Open Zoomstack vector tiles from the mbtiles supplied from OS at
 No need to install. This is hosted via gh-pages.
 
 ## Usage
-FIXME.
+- style file: https://hfu.github.io/os-road/os-road.json
 
 ## Note
 - The OS Road.json is supplied by Ordnance Survey from https://github.com/OrdnanceSurvey/OS-Open-Zoomstack-Stylesheets. The stylesheet is released by the [Open Government Licence](http://www.nationalarchives.gov.uk/doc/open-government-licence/).
