@@ -6,11 +6,6 @@
         54.62117388113654
     ],
     "zoom": 5.172063191005047,
-    "bearing": 0,
-    "pitch": 0.5,
-    "light": {
-        "intensity": 0.2
-    },
     "sources": {
       "composite": {
         "type": "vector",
@@ -18,8 +13,8 @@
           "https://vectortiles.xyz/zxy/zoomstack/{z}/{x}/{y}"
         ],
         "attribution": "OS Open Zoomstack",
-        "minzoom": 15,
-        "maxzoom": 15
+        "minzoom": 5,
+        "maxzoom": 14
       }
     },
     "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
@@ -359,9 +354,6 @@
         {
             "id": "roads 0 Restricted Road case",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -410,9 +402,6 @@
         {
             "id": "roads 0 Local Road case",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -461,9 +450,6 @@
         {
             "id": "roads 0 Minor Road case",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -512,9 +498,6 @@
         {
             "id": "roads 0 B Road case",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -563,9 +546,6 @@
         {
             "id": "roads 0 A Road case",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -614,9 +594,6 @@
         {
             "id": "roads 0 Primary case",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -665,9 +642,6 @@
         {
             "id": "roads 0 Motorway case",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -716,9 +690,6 @@
         {
             "id": "roads 0 Restricted Road",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
@@ -767,9 +738,6 @@
         {
             "id": "roads 0 Local Road",
             "type": "line",
-            "metadata": {
-                "mapbox:group": "b70308493053f7bbb91b528ae2a71241"
-            },
             "source": "composite",
             "source-layer": "roads",
             "minzoom": 5,
