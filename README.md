@@ -1,8 +1,6 @@
 # os-road
 Ordnance Survey's OS Road.json, in more Mapbox independent way
 
-THIS IS WORK IN PROGRESS.
-
 ## Background
 I am hosting OS Open Zoomstack vector tiles from the mbtiles supplied from OS at https://vectortiles.xyz/zxy/zoomstack/{z}/{x}/{y}. I want to give an example style to this in more Mapbox-independent way.
 
