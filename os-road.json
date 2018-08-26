@@ -22,7 +22,7 @@
         "maxzoom": 15
       }
     },
-    "sprite": "mapbox://sprites/geodataviz/cjh696nru0y6u2sn5awv6x778",
+    "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
     "glyphs": "https://hfu.github.io/noto-jp/{fontstack}/{range}.pbf",
     "layers": [
         {
