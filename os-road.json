@@ -13,7 +13,7 @@
         "tiles": [
           "https://vectortiles.xyz/zxy/zoomstack/{z}/{x}/{y}"
         ],
-        "attribution": "OS Open Zoomstack",
+        "attribution": "Contains OS data © Crown copyright and database right (2018)",
         "minzoom": 5,
         "maxzoom": 14
       }
