@@ -72,7 +72,8 @@ map.on('load', function() {
           ]
         },
         properties: {
-          size: Math.round(e.tile.latestRawTileData.byteLength / 1024) + 'KB',
+          size: Math.round(e.tile.latestRawTileData.byteLength / 1024) + 'KB(' + 
+            e.coord.canonical.z + ')',
           zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y,
           z: e.coord.canonical.z
         }
