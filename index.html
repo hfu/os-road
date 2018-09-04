@@ -26,7 +26,7 @@ var tile2lng = function(x, z) {
 }
 var tile2lat = function(y, z) {
   var n = Math.PI - 2 * Math.PI * y / Math.pow(2, z)
-  return 180 / Math.PI * Math.atan(0.5 * (Math.exp(2) - Math.exp(-2)))
+  return 180 / Math.PI * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)))
 }
 var tmp = {}
 var geojson = {
