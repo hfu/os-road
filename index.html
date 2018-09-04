@@ -56,6 +56,15 @@ map.on('load', function() {
       "text-color": "#000000"
     }
   })
+  map.addLayer({
+    id: 'size-circle',
+    type: 'circle',
+    source: 'size',
+    paint: {
+      'circle-radius': ['/', ['get', 'size'], 8], 
+      'circle-color': '#f00'
+    }
+  })
   map.addControl(new mapboxgl.NavigationControl());
 
   map.on('data', function(e) {
@@ -72,8 +81,7 @@ map.on('load', function() {
           ]
         },
         properties: {
-          size: Math.round(e.tile.latestRawTileData.byteLength / 1024) + 'KB(' + 
-            e.coord.canonical.z + ')',
+          size: Math.round(e.tile.latestRawTileData.byteLength / 1024),
           zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y,
           z: e.coord.canonical.z
         }
