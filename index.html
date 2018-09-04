@@ -30,6 +30,7 @@ map.on('load', function() {
 })
 map.on('data', function(e) {
   console.log(e)
+  console.log(e.coord.canonical + ': ' + e.tile.latestRawTileData.length)
 })
 </script>
 </body>
