@@ -78,7 +78,8 @@ map.on('load', function() {
           type: 'Point',
           coordinates: [
             tile2lng(e.coord.canonical.x + 0.5, e.coord.canonical.z),
-            tile2lat(e.coord.canonical.y + 0.5, e.coord.canonical.z)
+            tile2lat(e.coord.canonical.y + 0.5, e.coord.canonical.z),
+            (18 - e.coord.canonical.z) * 5000
           ]
         },
         properties: {
