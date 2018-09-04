@@ -88,12 +88,12 @@ map.on('load', function() {
         geometry: {
           type: 'Point',
           coordinates: [
-            tile2lng(e.coord.canonical.x, e.coord.canonical.z),
-            tile2lat(e.coord.canonical.y, e.coord.canonical.z)
+            tile2lng(e.coord.canonical.x + 0.5, e.coord.canonical.z),
+            tile2lat(e.coord.canonical.y + 0.5, e.coord.canonical.z)
           ]
         },
         properties: {
-          size: e.tile.latestRawTileData.byteLength / 1024 + 'KB',
+          size: Math.round(e.tile.latestRawTileData.byteLength / 1024) + 'KB',
           zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y
         }
       }
