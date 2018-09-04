@@ -21,6 +21,7 @@ body { margin:0; padding:0; }
 <body>
 <div id='map'></div>
 <script>
+var tmp = {}
 var map = new mapboxgl.Map({
   container: 'map', style: 'os-road.json', zoom: 12.18, center: [-0.12736, 51.50639],
   attributionControl: true, hash: true
@@ -30,7 +31,8 @@ map.on('load', function() {
 })
 map.on('data', function(e) {
   console.log(e)
-  console.log(e.coord.canonical + ': ' + e.tile.latestRawTileData.length)
+  tmp = e
+  // console.log(e.coord.canonical + ': ' + e.tile.latestRawTileData.length)
 })
 </script>
 </body>
