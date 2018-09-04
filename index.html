@@ -33,9 +33,10 @@ map.on('data', function(e) {
   console.log(e)
   tmp = e
   if (e.sourceId === 'zoomstack') {
+    console.log(e.tile.hasData())
     console.log(
       e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y + ': ' +
-      e.tile.latestRawTileData.byteLength + 'bytes'
+      e.tile.latestRawTileData.byteLength + ' bytes'
     )
   }
 })
