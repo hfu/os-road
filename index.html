@@ -31,16 +31,7 @@ var tile2lat = function(y, z) {
 var tmp = {}
 var geojson = {
   type: 'FeatureCollection',
-  features: [{
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [-0.212, 51.508]
-    },
-    properties: {
-      size: '0KB'
-    }
-  }]
+  features: []
 }
 var map = new mapboxgl.Map({
   container: 'map', style: 'os-road.json', zoom: 12.18, center: [-0.12736, 51.50639],
@@ -55,20 +46,7 @@ map.on('load', function() {
     layout: {
       "text-font": ["NotoSansCJKjp-Bold"],
       "text-field": "{size}",
-      "text-size": [
-        "interpolate",
-        [
-          "linear"
-        ],
-        [
-          "zoom"
-        ],
-        5,
-        11,
-        14,
-        26
-      ],
-      "text-letter-spacing": 0.05
+      "text-size": ['/', 14, ['+' ['abs' ['-', ['zoom'], ['get', 'z']]] + 1]]
     },
     "paint": {
       "text-halo-color": "#fafaf3",
@@ -94,7 +72,8 @@ map.on('load', function() {
         },
         properties: {
           size: Math.round(e.tile.latestRawTileData.byteLength / 1024) + 'KB',
-          zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y
+          zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y,
+          z: e.coord.canonical.z
         }
       }
       geojson.features.push(f)
