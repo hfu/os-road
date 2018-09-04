@@ -78,33 +78,34 @@ map.on('load', function() {
     }
   })
   map.addControl(new mapboxgl.NavigationControl());
-})
-map.on('data', function(e) {
-  // console.log(e)
-  tmp = e
-  if (e.sourceId === 'zoomstack' && e.tile.hasData()) {
-    var f = {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [
-          tile2lng(e.coord.canonical.x, e.coord.canonical.z),
-          tile2lat(e.coord.canonical.y, e.coord.canonical.z)
-        ]
-      },
-      properties: {
-        size: e.tile.latestRawTileData.byteLength / 1024 + 'KB',
-        zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y
+
+  map.on('data', function(e) {
+    // console.log(e)
+    tmp = e
+    if (e.sourceId === 'zoomstack' && e.tile.hasData()) {
+      var f = {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [
+            tile2lng(e.coord.canonical.x, e.coord.canonical.z),
+            tile2lat(e.coord.canonical.y, e.coord.canonical.z)
+          ]
+        },
+        properties: {
+          size: e.tile.latestRawTileData.byteLength / 1024 + 'KB',
+          zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y
+        }
       }
+      geojson.features.push(f)
+      map.getSource('size').setData(geojson)
+      console.log(
+        e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y + ': ' +
+        e.tile.latestRawTileData.byteLength + ' bytes' + 
+        JSON.stringify(f, null, 2)
+      )
     }
-    geojson.features.push(f)
-    map.getSource('size').setData(geojson)
-    console.log(
-      e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y + ': ' +
-      e.tile.latestRawTileData.byteLength + ' bytes' + 
-      JSON.stringify(f, null, 2)
-    )
-  }
+  })
 })
 </script>
 </body>
