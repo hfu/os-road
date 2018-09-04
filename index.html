@@ -32,7 +32,12 @@ map.on('load', function() {
 map.on('data', function(e) {
   console.log(e)
   tmp = e
-  // console.log(e.coord.canonical + ': ' + e.tile.latestRawTileData.length)
+  if (e.sourceId === 'zoomstack') {
+    console.log(
+      e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y + ': ' +
+      e.tile.latestRawTileData.byteLength + 'bytes'
+    )
+  }
 })
 </script>
 </body>
