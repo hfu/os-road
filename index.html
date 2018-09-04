@@ -86,7 +86,7 @@ map.on('load', function() {
           size: Math.round(e.tile.latestRawTileData.byteLength / 1024),
           zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y,
           z: e.coord.canonical.z,
-          color: '#0f0'
+          color: 'hsl(' + (e.coord.canonical.z * 20) + ', 100%, 75%)'
         }
       }
       geojson.features.push(f)
