@@ -22,11 +22,28 @@ body { margin:0; padding:0; }
 <div id='map'></div>
 <script>
 var tmp = {}
+var geojson = {
+  type: 'FeatureCollection',
+  features: {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-0.212, 51.508]
+    },
+    properties: {}
+  }
+}
 var map = new mapboxgl.Map({
   container: 'map', style: 'os-road.json', zoom: 12.18, center: [-0.12736, 51.50639],
   attributionControl: true, hash: true
 })
 map.on('load', function() {
+  map.addSource('size', { type: 'geojson', data: geojson })
+  map.addLayer({
+    id: 'size', type: 'circle', source: 'size', 
+    paint: {
+    }
+  })
   map.addControl(new mapboxgl.NavigationControl());
 })
 map.on('data', function(e) {
