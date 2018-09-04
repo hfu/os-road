@@ -85,7 +85,7 @@ map.on('data', function(e) {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates = [
+        coordinates: [
           tile2lng(e.coord.canonical.x, e.coord.canonical.z),
           tile2lat(e.coord.canonical.y, e.coord.canonical.z)
         ]
