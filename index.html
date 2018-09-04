@@ -21,6 +21,13 @@ body { margin:0; padding:0; }
 <body>
 <div id='map'></div>
 <script>
+var tile2lng = function(x, z) {
+  return x / Math.pow(2, z) * 360 - 180
+}
+var tile2lat = function(y, z) {
+  var n = Math.PI - 2 * Math.PI * y / Math.pow(2, z)
+  return 180 / Math.PI * Math.atan(0.5 * (Math.exp(2) - Math.exp(-2)))
+}
 var tmp = {}
 var geojson = {
   type: 'FeatureCollection',
@@ -43,46 +50,54 @@ map.on('load', function() {
     id: 'size',
     type: 'symbol',
     source: 'size',
-  "layout": {
-    "text-font": [
-      "NotoSansCJKjp-Bold"
-    ],
-    "text-field": "NA {name} ME",
-    "text-size": [
-      "interpolate",
-      [
-        "linear"
+    layout: {
+      "text-font": ["NotoSansCJKjp-Bold"],
+      "text-field": "NA {name} ME",
+      "text-size": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "zoom"
+        ],
+        5,
+        11,
+        14,
+        26
       ],
-      [
-        "zoom"
-      ],
-      5,
-      11,
-      14,
-      26
-    ],
-    "text-letter-spacing": 0.05
-  },
-  "paint": {
-    "text-halo-color": "#fafaf3",
-    "text-halo-width": 1,
-    "text-halo-blur": 1,
-    "text-color": "#000000"
-  }
-}
-    
-    
-    
-)
+      "text-letter-spacing": 0.05
+    },
+    "paint": {
+      "text-halo-color": "#fafaf3",
+      "text-halo-width": 1,
+      "text-halo-blur": 1,
+      "text-color": "#000000"
+    }
+  })
   map.addControl(new mapboxgl.NavigationControl());
 })
 map.on('data', function(e) {
   // console.log(e)
   tmp = e
   if (e.sourceId === 'zoomstack' && e.tile.hasData()) {
+    var f = {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates = [
+          tile2lng(e.coord.canonical.x, e.coord.canonical.z),
+          tile2lat(e.coord.canonical.y, e.coord.canonical.z)
+        ]
+      },
+      properties: {
+        label: e.tile.latestRawTileData.byteLength / 1024 + 'KB'
+      }
+    }
     console.log(
       e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y + ': ' +
-      e.tile.latestRawTileData.byteLength + ' bytes'
+      e.tile.latestRawTileData.byteLength + ' bytes' + 
+      JSON.stringify(f, null, 2)
     )
   }
 })
