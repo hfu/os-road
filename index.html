@@ -45,7 +45,7 @@ map.on('load', function() {
     source: 'size',
     paint: {
       'circle-radius': ['/', ['get', 'size'], 20], 
-      'circle-color': '#f00',
+      'circle-color': ['get', 'color'],
       'circle-opacity':  0.5
     }
   })
@@ -85,7 +85,8 @@ map.on('load', function() {
         properties: {
           size: Math.round(e.tile.latestRawTileData.byteLength / 1024),
           zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y,
-          z: e.coord.canonical.z
+          z: e.coord.canonical.z,
+          color: '#0f0'
         }
       }
       geojson.features.push(f)
