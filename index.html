@@ -44,7 +44,7 @@ map.on('load', function() {
     type: 'circle',
     source: 'size',
     paint: {
-      'circle-radius': ['/', ['sqrt', ['get', 'size']], 100], 
+      'circle-radius': ['*', ['sqrt', ['get', 'size']], 20], 
       'circle-color': ['get', 'color'],
       'circle-opacity':  0.5
     }
