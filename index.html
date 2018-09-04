@@ -24,14 +24,14 @@ body { margin:0; padding:0; }
 var tmp = {}
 var geojson = {
   type: 'FeatureCollection',
-  features: {
+  features: [{
     type: 'Feature',
     geometry: {
       type: 'Point',
       coordinates: [-0.212, 51.508]
     },
     properties: {}
-  }
+  }]
 }
 var map = new mapboxgl.Map({
   container: 'map', style: 'os-road.json', zoom: 12.18, center: [-0.12736, 51.50639],
