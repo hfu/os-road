@@ -40,6 +40,15 @@ var map = new mapboxgl.Map({
 map.on('load', function() {
   map.addSource('size', { type: 'geojson', data: geojson })
   map.addLayer({
+    id: 'size-circle',
+    type: 'circle',
+    source: 'size',
+    paint: {
+      'circle-radius': ['/', ['get', 'size'], 20], 
+      'circle-color': '#f00'
+    }
+  })
+  map.addLayer({
     id: 'size',
     type: 'symbol',
     source: 'size',
@@ -54,15 +63,6 @@ map.on('load', function() {
       "text-halo-width": 1,
       "text-halo-blur": 1,
       "text-color": "#000000"
-    }
-  })
-  map.addLayer({
-    id: 'size-circle',
-    type: 'circle',
-    source: 'size',
-    paint: {
-      'circle-radius': ['/', ['get', 'size'], 8], 
-      'circle-color': '#f00'
     }
   })
   map.addControl(new mapboxgl.NavigationControl());
