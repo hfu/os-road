@@ -30,7 +30,7 @@ map.on('load', function() {
   map.addControl(new mapboxgl.NavigationControl());
 })
 map.on('data', function(e) {
-  console.log(e)
+  // console.log(e)
   tmp = e
   if (e.sourceId === 'zoomstack' && e.tile.hasData()) {
     console.log(
