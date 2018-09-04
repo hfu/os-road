@@ -37,7 +37,9 @@ var geojson = {
       type: 'Point',
       coordinates: [-0.212, 51.508]
     },
-    properties: {}
+    properties: {
+      size: '0KB'
+    }
   }]
 }
 var map = new mapboxgl.Map({
@@ -52,7 +54,7 @@ map.on('load', function() {
     source: 'size',
     layout: {
       "text-font": ["NotoSansCJKjp-Bold"],
-      "text-field": "NA {name} ME",
+      "text-field": "{size}",
       "text-size": [
         "interpolate",
         [
@@ -91,9 +93,12 @@ map.on('data', function(e) {
         ]
       },
       properties: {
-        label: e.tile.latestRawTileData.byteLength / 1024 + 'KB'
+        size: e.tile.latestRawTileData.byteLength / 1024 + 'KB',
+        zxy: e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y
       }
     }
+    geojson.features.push(f)
+    map.getSource('size').setData(geojson)
     console.log(
       e.coord.canonical.z + '/' + e.coord.canonical.x + '/' + e.coord.canonical.y + ': ' +
       e.tile.latestRawTileData.byteLength + ' bytes' + 
