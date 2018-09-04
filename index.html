@@ -40,10 +40,41 @@ var map = new mapboxgl.Map({
 map.on('load', function() {
   map.addSource('size', { type: 'geojson', data: geojson })
   map.addLayer({
-    id: 'size', type: 'circle', source: 'size', 
-    paint: {
-    }
-  })
+    id: 'size',
+    type: 'symbol',
+    source: 'size',
+    "source-layer": "size",
+  "layout": {
+    "text-font": [
+      "NotoSansCJKjp-Bold"
+    ],
+    "text-field": "{name}",
+    "text-size": [
+      "interpolate",
+      [
+        "linear"
+      ],
+      [
+        "zoom"
+      ],
+      5,
+      11,
+      14,
+      26
+    ],
+    "text-letter-spacing": 0.05
+  },
+  "paint": {
+    "text-halo-color": "#fafaf3",
+    "text-halo-width": 1,
+    "text-halo-blur": 1,
+    "text-color": "#000000"
+  }
+}
+    
+    
+    
+)
   map.addControl(new mapboxgl.NavigationControl());
 })
 map.on('data', function(e) {
